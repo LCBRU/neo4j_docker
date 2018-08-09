@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  neo4j:
+    restart: always
+    image: neo4j:3.0
+    ports:
+      - "7687:7687"
+      - "${HTTP_PORT}:7474"
+    volumes:
+      - ${DATA_DIRECTORY}:/data
+      - ${CONF_DIRECTORY}:/conf
+    environment:
+      NEO4J_AUTH: neo4j/${ADMIN_PASSWORD}
+    
