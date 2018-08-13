@@ -5,7 +5,7 @@ services:
     restart: always
     image: neo4j:3.0
     ports:
-      - "7687:7687"
+      - "${BOLT_PORT}:7687"
       - "${HTTP_PORT}:7474"
     volumes:
       - ${DATA_DIRECTORY}:/data
